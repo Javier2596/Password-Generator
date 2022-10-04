@@ -11,54 +11,58 @@ function writePassword() {
 
 
 function generatePassword() {
+  var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+  var lower = lowercaseChar.split("");
+  var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var upper = uppercaseChar.split("");
+  var numericChar = "0123456789";
+  var num = numericChar.split("");
+  var symbolicChar = "!@#$%^&*()";
+  var sym = symbolicChar.split("");
+  var otherChar = [];
+
   var passwordLength = prompt("Enter length of password: 8-128 characters"); 
   var option1 = confirm("Include lowercase?");
   var option2 = confirm("Include uppercase?");
   var option3 = confirm("Include numbers?");
   var option4 = confirm("Include symbols?");
-  var lowercaseChar = ["abcdefghijklmnopqrstuvwxyz"];
-  var uppercaseChar = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-  var numericChar = ["0123456789"];
-  var symbolicChar = ["!@#$%^&*()"];
-  var otherChar = [];
-  var message = "";
   
   if(passwordLength <8 || passwordLength > 128) {
     alert("Must be 8-128 characters long");
     generatePassword();
   }
-  
+     
  if(option1) {
-  otherChar = otherChar.concat(lowercaseChar);
+       otherChar.concat(lower);
   } else if(option1 && option2) {
-     otherChar = otherChar.concat(lowercaseChar, uppercaseChar);
+       otherChar.concat(lower, upper);
   } else if(option1 && option2 && option3) {
-    otherChar = otherChar.concat(lowercaseChar, uppercaseChar, numericChar);
+       otherChar.concat(lower, upper, num);
   } else if(option1 && option2 && option3 && option4) {
-    otherChar = otherChar.concat(lowercaseChar, uppercaseChar, numericChar, symbolicChar);
+       otherChar.concat(lower, upper, num, sym);
   } else if(option2 && option3 && option4) {
-    otherChar = otherChar.concat(uppercaseChar, numericChar, symbolicChar);
+     otherChar.concat(upper, num, sym);
   } else if(option1 && option2 && option4) {
-    otherChar = otherChar.concat(lowercaseChar, uppercaseChar, symbolicChar);
+     otherChar.concat(lower, upper, sym);
   } else if(option1 && option3 && option4) {
-    otherChar = otherChar.concat(lowercaseChar, numericChar, symbolicChar);  
+     otherChar.concat(lower, num, sym);  
   } else if(option1 && option3) {
-    otherChar = otherChar.concat(lowercaseChar, numericChar);
+     otherChar.concat(lower, num);
   } else if(option1 && option4) {
-    otherChar = otherChar.concat(lowercaseChar, symbolicChar);
+     otherChar.concat(lower, sym);
   } else if(option2 && option3) {
-    otherChar = otherChar.concat(uppercaseChar, numericChar);
+     otherChar.concat(upper, num);
   } else if(option2 && option4) {
-    otherChar = otherChar.concat(uppercaseChar, symbolicChar);
+     otherChar.concat(upper, sym);
   } else if(option3 && option4) {
-    otherChar = otherChar.concat(numericChar, symbolicChar);
+     otherChar.concat(num, sym);
   };
 
   for(var i = 0; i < otherChar.length; i++) {
-    var random = Math.floor(Math.random() * otherChar.length);
-    message += otherChar[random];
-
- };
+    var random = (Math.floor(Math.random() * otherChar.length));
+    otherChar.textContent = otherChar[i];
+ }; 
+ 
 };
 
 // Add event listener to generate button
