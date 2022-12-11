@@ -15,20 +15,17 @@ function writePassword() {
   
   passwordText.value = password;
 
-   console.log(password);
-
   function generatePassword() {
     
-    var passwordLength = window.prompt("Enter length of password: 8-128 characters");
-    var lengthPW = 8 <= passwordLength && passwordLength <= 128;
+    var passwordLength = window.prompt("Enter length of password: 8-15 characters");
+    var lengthPW = 8 <= passwordLength && passwordLength <= 15;
     var option1 = window.confirm("Include lowercase?");
     var option2 = window.confirm("Include uppercase?");
     var option3 = window.confirm("Include numbers?");
     var option4 = window.confirm("Include symbols?");
     
-    
     if (!lengthPW) {
-      alert("Must be 8-128 characters long");
+      alert("Must be 8-15 characters long");
       return;
     } 
 
@@ -58,13 +55,12 @@ function writePassword() {
       return;
     };
 
+    for (var i = 0; i < otherChar.length; i ++) {
     var index = Math.floor(Math.random() * otherChar.length);
-    var choicePW = otherChar[index];    
-
-    if(choicePW) {
-      window.alert("password generated successful");
-    };
-
+    var choicePW = otherChar[index];  
+    password += choicePW;
+    }
+    return password;
     };
     
    };
