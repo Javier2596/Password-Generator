@@ -35,7 +35,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Installation
 
-I first started with creating the variables for the functions. Variables for the characters that would be included in the password, and variables that provided prompts and confirm messages asking the user which characters they wanted in the generated password. After I created if statements with concat to group specific password characters such as number and symbols if the user wanted these specifications. I then made a for loop that would give the parameters for selecting the characters at random. This project is still work in progress since I am struggling to make the password generate to the actual webpage. What I receive on the webpage when I run the code is 'undefined'.  
+I first started with creating the variables for the functions. Variables for the characters that would be included in the password, and variables that provided prompts and confirm messages asking the user which characters they wanted in the generated password. After I created if statements with concat to group specific password characters such as number and symbols if the user wanted these specifications. I then made a for loop that would give the parameters for selecting the characters at random. The big issue I faced during this challenge was rendering the password to the actual webpage. After editing the for loop and attaching the 'choicePW' variable to the password string I was able to get the random password to render to the webpage, but there was still an issue with the undefined phrase appearing before the password. I had to 'slice' the undefined out in order to produce only the wanted generated password. 
 
 
 ## Credits

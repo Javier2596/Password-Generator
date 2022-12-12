@@ -52,15 +52,18 @@ function writePassword() {
     } else if(option3 && option4) {
       otherChar = otherChar.concat(charNum, charSym);
     } else {
+      alert("Must contain 2 or more character types!");
       return;
     };
 
-    for (var i = 0; i < otherChar.length; i ++) {
+    for (var i = 0; i < passwordLength; i ++) {
     var index = Math.floor(Math.random() * otherChar.length);
     var choicePW = otherChar[index];  
+    
     password += choicePW;
-    }
-    return password;
+    }  
+    
+    return password.slice(9, (passwordLength+9));
     };
     
    };
