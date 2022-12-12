@@ -16,19 +16,19 @@ function writePassword() {
   passwordText.value = password;
 
   function generatePassword() {
-    
+    //variables for length and window prompts
     var passwordLength = window.prompt("Enter length of password: 8-15 characters");
     var lengthPW = 8 <= passwordLength && passwordLength <= 15;
     var option1 = window.confirm("Include lowercase?");
     var option2 = window.confirm("Include uppercase?");
     var option3 = window.confirm("Include numbers?");
     var option4 = window.confirm("Include symbols?");
-    
+    //statement makes sure user selects proper password length
     if (!lengthPW) {
       alert("Must be 8-15 characters long");
       return;
     } 
-
+    // if statement to tell computer what to do depending on users choices of the window prompts 
     if(option1 && option2 && option3 && option4) {
      otherChar = otherChar.concat(charLower, charUpper, charNum, charSym);
      } else if(option1 && option2 && option3) {
@@ -56,13 +56,14 @@ function writePassword() {
       return;
     };
 
+    // for loop to run the randomization of the chosen characters and the the length of deasired password
     for (var i = 0; i < passwordLength; i ++) {
     var index = Math.floor(Math.random() * otherChar.length);
     var choicePW = otherChar[index];  
     
     password += choicePW;
     }  
-    
+    //returns password without 'undefined' statement 
     return password.slice(9, (passwordLength+9));
     };
     
